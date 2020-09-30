@@ -2,6 +2,8 @@
 
 * Transforms data provided by [SafePassGlobal](https://safepassglobal.com/) REST api
 
+* [SAP HANA](https://www.sap.com/products/hana.html) Database for source is located in the db module of [cp-rtwp](https://github.com/openNS2/cp-rtwp)
+
 ## Data Transformation
 
 * To prepare the safepass api data for import, run this transform process
