@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "scripts": {
     "import": "npm run lint && node import.js",
-    "prepare": "npm run lint && node prepare-device.js",
+    "prepare": "npm run lint && npm run visit && npm run device",
+    "device": "node prepare-device.js",
+    "visit": "node prepare-visit.js",
     "clean": "npm run lint && node clean.js",
     "lint": "npx eslint ."
   },
