@@ -8,5 +8,5 @@ fi
 
 echo "{\"hana\": $credentials }" > ./default-services.json
 
-npm run clean
+#npm run clean
 npm run import

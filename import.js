@@ -6,7 +6,7 @@ const hdbext = require('@sap/hdbext');
 const rawFile = fs.readFileSync('default-services.json');
 const hanaConfig = JSON.parse(rawFile).hana;
 
-const rawData = fs.readFileSync('prepared.json');
+const rawData = fs.readFileSync('prepared-device.json');
 const data = JSON.parse(rawData);
 
 hdbext.createConnection(hanaConfig, (error, client) => {
