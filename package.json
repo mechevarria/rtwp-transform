@@ -2,10 +2,12 @@
   "name": "safepass-reference-scripts",
   "version": "0.1.0",
   "scripts": {
-    "import": "npm run lint && node import.js",
-    "prepare": "npm run lint && npm run visit && npm run device",
-    "device": "node prepare-device.js",
-    "visit": "node prepare-visit.js",
+    "import": "npm run lint && node import-visit.js && node import-device.js",
+    "importVisit": "node import-visit.js",
+    "importDevice": "node import-device.js",
+    "prepare": "npm run lint && npm run prepareVisit && npm run preareDevice",
+    "prepareDevice": "node prepare-device.js",
+    "prepareVisit": "node prepare-visit.js",
     "clean": "npm run lint && node clean.js",
     "lint": "npx eslint ."
   },

@@ -1,4 +1,4 @@
-console.info('Import started');
+console.info('Import visit started');
 
 const fs = require('fs');
 const hdbext = require('@sap/hdbext');
@@ -6,7 +6,7 @@ const hdbext = require('@sap/hdbext');
 const rawFile = fs.readFileSync('default-services.json');
 const hanaConfig = JSON.parse(rawFile).hana;
 
-const rawData = fs.readFileSync('prepared-device.json');
+const rawData = fs.readFileSync('prepared-visit.json');
 const data = JSON.parse(rawData);
 
 hdbext.createConnection(hanaConfig, (error, client) => {
@@ -14,9 +14,9 @@ hdbext.createConnection(hanaConfig, (error, client) => {
         console.error(error);
         process.exit(1);
     }
-
+    // TODO
     const statement = client.prepare(
-        `INSERT INTO BADGE_LOCATION(LOC, PROB, SEEN, FLOOR, DEVICE_ID, GEO_LOC, SEEN_TS) 
+        `INSERT INTO VISIT(LOC, PROB, SEEN, FLOOR, DEVICE_ID, GEO_LOC, SEEN_TS) 
          VALUES (?,?,?,?,?, new ST_POINT(?),?)`
     );
 
