@@ -24,6 +24,9 @@ fs.createReadStream(inputFile)
     .pipe(es.mapSync((item) => {
         const mapped = item;
         delete mapped.floorMaps;
+        delete mapped.startTime;
+        delete mapped.lastTime;
+        delete mapped.lastModificationTime;
         deviceIds.push(mapped.deviceId);
         mapped.startTimestamp = getTs(mapped.startTime);
         mapped.lastTimestamp = getTs(mapped.lastTime);
