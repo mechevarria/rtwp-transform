@@ -14,16 +14,52 @@ hdbext.createConnection(hanaConfig, (error, client) => {
         console.error(error);
         process.exit(1);
     }
-    // TODO
     const statement = client.prepare(
-        `INSERT INTO VISIT(LOC, PROB, SEEN, FLOOR, DEVICE_ID, GEO_LOC, SEEN_TS) 
-         VALUES (?,?,?,?,?, new ST_POINT(?),?)`
+        `INSERT INTO VISIT(
+            VISITOR_NAME,
+            VISIT_ID,
+            EMAIL,
+            MOBILE,
+            MOBILE_COUNTRY,
+            FIRST_NAME,
+            LAST_NAME,
+            VISITOR_TYPE,
+            IMAGE_URL,
+            COMPANY_NAME,
+            ADDRESS,
+            STATUS,
+            DEVICE_ID,
+            READABLE_DEVICE_ID,
+            UUID,
+            START_TS,
+            LAST_TS,
+            LAST_MODIFICATION_TS) 
+         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`
     );
 
     let count = 0;
 
     data.forEach((record) => {
-        const bindParams = [record.loc, record.prob, record.seen, record.floor, record.deviceId, record.geoLoc, record.seenTs];
+        const bindParams = [
+            record.visitorName,
+            record.visitId,
+            record.email,
+            record.mobile,
+            record.mobileCountry,
+            record.firstName,
+            record.lastName,
+            record.visitorType,
+            record.imageUrl,
+            record.companyName,
+            record.address,
+            record.status,
+            record.deviceId,
+            record.readableDeviceId,
+            record.id,
+            record.startTimestamp,
+            record.lastTimestamp,
+            record.lastModificationTimestamp
+        ];
         const result = statement.exec(bindParams);
         count += result;
     });
