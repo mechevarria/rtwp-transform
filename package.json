@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@sap/hdbext": "^6.2.2",
+    "JSONStream": "^1.3.5",
+    "event-stream": "^4.0.1",
     "moment": "^2.29.0"
   },
   "devDependencies": {
