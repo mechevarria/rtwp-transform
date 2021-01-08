@@ -5,7 +5,7 @@
     "import": "npm run lint && node import-visit.js && node import-device.js",
     "importVisit": "node import-visit.js",
     "importDevice": "node import-device.js",
-    "prepare": "npm run lint && npm run prepareVisit && npm run preareDevice",
+    "prepare": "npm run lint && npm run prepareVisit && npm run prepareDevice",
     "prepareDevice": "node prepare-device.js",
     "prepareVisit": "node prepare-visit.js",
     "clean": "npm run lint && node clean.js",
